@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/colorPrimaryDark">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/menu_PlayBtn"
+            style="@style/MenuButton"
+            android:drawableLeft="@drawable/play"
+
+            android:text="Играть" />
+
+        <Button
+            android:id="@+id/menu_ChooseLevelBtn"
+            android:drawableLeft="@drawable/levels"
+            style="@style/MenuButton"
+            android:layout_marginTop="25dp"
+            android:text="Уровни" />
+
+        <Button
+            android:id="@+id/menu_RestartBtn"
+            android:drawableLeft="@drawable/restart"
+            style="@style/MenuButton"
+            android:layout_marginTop="25dp"
+            android:text="сначала" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

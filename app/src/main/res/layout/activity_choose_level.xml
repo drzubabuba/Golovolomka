@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseLevelActivity"
+    android:id="@+id/relativeLayout"
+    android:background="@color/colorPrimaryDark">
+
+    <TextView
+        android:id="@+id/chooseLevelTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/baloo_thambi"
+        android:text="Уровни"
+        android:textSize="46sp"
+        android:textStyle="bold"
+
+        />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:padding="15dp"
+        android:layout_below="@+id/chooseLevelTitle">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_level_1"
+                    style="@style/LevelButtonStyle"
+                    android:text="1" />
+
+                <Button
+                    android:id="@+id/btn_level_2"
+                    style="@style/LevelButtonStyle"
+                    android:text="2" />
+
+                <Button
+                    android:id="@+id/btn_level_3"
+                    style="@style/LevelButtonStyle"
+                    android:text="3" />
+
+                <Button
+                    android:id="@+id/btn_level_4"
+                    style="@style/LevelButtonStyle"
+                    android:text="4" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_level_5"
+                    style="@style/LevelButtonStyle"
+                    android:text="5" />
+
+                <Button
+                    android:id="@+id/btn_level_6"
+                    style="@style/LevelButtonStyle"
+                    android:text="6"
+                    />
+
+                <Button
+                    android:id="@+id/btn_level_7"
+                    style="@style/LevelButtonStyle"
+                    android:text="7"/>
+
+                <Button
+                    android:id="@+id/btn_level_8"
+                    style="@style/LevelButtonStyle"
+                    android:text="8"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_level_9"
+                    style="@style/LevelButtonStyle"
+                    android:text="9"/>
+
+                <Button
+                    android:id="@+id/btn_level_10"
+                    style="@style/LevelButtonStyle"
+                    android:text="10"/>
+
+                <Button
+                    android:id="@+id/btn_level_11"
+                    style="@style/LevelButtonStyle"
+                    android:text="11"/>
+
+                <Button
+                    android:id="@+id/btn_level_12"
+                    style="@style/LevelButtonStyle"
+                    android:text="12"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_level_13"
+                    style="@style/LevelButtonStyle"
+                    android:text="13"/>
+
+                <Button
+                    android:id="@+id/btn_level_14"
+                    style="@style/LevelButtonStyle"
+                    android:text="14"/>
+
+                <Button
+                    android:id="@+id/btn_level_15"
+                    style="@style/LevelButtonStyle"
+                    android:text="15"/>
+
+                <Button
+                    android:id="@+id/btn_level_16"
+                    style="@style/LevelButtonStyle"
+                    android:text="16"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_level_17"
+                    style="@style/LevelButtonStyle"
+                    android:text="17"/>
+
+                <Button
+                    android:id="@+id/btn_level_18"
+                    style="@style/LevelButtonStyle"
+                    android:text="18"/>
+
+                <Button
+                    android:id="@+id/btn_level_19"
+                    style="@style/LevelButtonStyle"
+                    android:text="19"/>
+
+                <Button
+                    android:id="@+id/btn_level_20"
+                    style="@style/LevelButtonStyle"
+                    android:text="20"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_level_21"
+                    style="@style/LevelButtonStyle"
+                    android:text="21"/>
+
+                <Button
+                    android:id="@+id/btn_level_22"
+                    style="@style/LevelButtonStyle"
+                    android:text="22"/>
+
+                <Button
+                    android:id="@+id/btn_level_23"
+                    style="@style/LevelButtonStyle"
+                    android:text="23"/>
+
+                <Button
+                    android:id="@+id/btn_level_24"
+                    style="@style/LevelButtonStyle"
+                    android:text="24"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_level_25"
+                    style="@style/LevelButtonStyle"
+                    android:text="25"/>
+
+                <Button
+                    android:id="@+id/btn_level_26"
+                    style="@style/LevelButtonStyle"
+                    android:text="26"/>
+
+                <Button
+                    android:id="@+id/btn_level_27"
+                    style="@style/LevelButtonStyle"
+                    android:text="27"/>
+
+                <Button
+                    android:id="@+id/btn_level_28"
+                    style="@style/LevelButtonStyle"
+                    android:text="28"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_level_29"
+                    style="@style/LevelButtonStyle"
+                    android:text="29"/>
+
+                <Button
+                    android:id="@+id/btn_level_30"
+                    style="@style/LevelButtonStyle"
+                    android:text="30"/>
+
+                <Button
+                    android:id="@+id/btn_level_31"
+                    style="@style/LevelButtonStyle"
+                    android:text="31"/>
+
+                <Button
+                    android:id="@+id/btn_level_32"
+                    style="@style/LevelButtonStyle"
+                    android:text="32"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_level_33"
+                    style="@style/LevelButtonStyle"
+                    android:text="33"/>
+
+                <Button
+                    android:id="@+id/btn_level_34"
+                    style="@style/LevelButtonStyle"
+                    android:text="34"/>
+
+                <Button
+                    android:id="@+id/btn_level_35"
+                    style="@style/LevelButtonStyle"
+                    android:text="35"/>
+
+                <Button
+                    android:id="@+id/btn_level_36"
+                    style="@style/LevelButtonStyle"
+                    android:text="36"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_level_37"
+                    style="@style/LevelButtonStyle"
+                    android:text="37"/>
+
+                <Button
+                    android:id="@+id/btn_level_38"
+                    style="@style/LevelButtonStyle"
+                    android:text="38"/>
+
+                <Button
+                    android:id="@+id/btn_level_39"
+                    style="@style/LevelButtonStyle"
+                    android:text="39"/>
+
+                <Button
+                    android:id="@+id/btn_level_40"
+                    style="@style/LevelButtonStyle"
+                    android:text="40"/>
+
+            </TableRow>
+
+
+        </TableLayout>
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>

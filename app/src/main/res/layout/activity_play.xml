@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlayActivity"
+    android:background="@color/colorPrimaryDark"
+    android:id="@+id/playLayout">
+
+    <TextView
+        android:id="@+id/txtLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/baloo_thambi"
+        android:text="Уровень"
+        android:textSize="46sp"
+        android:textStyle="bold"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/txtLevel"
+        android:background="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/txtFirstHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/txtLevel"
+        android:fontFamily="@font/baloo_thambi"
+        android:gravity="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/userAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/baloo_thambi"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/txtFirstHint"
+        android:gravity="center"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:hint="Общее слово"/>
+
+    <TextView
+        android:id="@+id/txtSecondHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/userAnswer"
+        android:fontFamily="@font/baloo_thambi"
+        android:gravity="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/nextLevelBtn"
+        style="@style/MenuButton"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txtSecondHint"
+        android:layout_marginTop="50dp"
+        android:visibility="invisible"
+        android:enabled="false"
+        android:text="Далее"/>
+
+
+
+</RelativeLayout>
