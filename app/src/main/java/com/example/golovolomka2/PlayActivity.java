@@ -3,6 +3,8 @@ package com.example.golovolomka2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -19,9 +21,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.util.ArrayList;
 
 public class PlayActivity extends AppCompatActivity {
+
+    private InterstitialAd mInterstital;
 
     // SharedPreferences
     private static final String PREFS_FILE = "GamePref";
@@ -42,11 +53,14 @@ public class PlayActivity extends AppCompatActivity {
     EditText userAnswer;
     RelativeLayout layout;
     Button nextLevelBtn;
+    Button hintBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
+        MobileAds.initialize(this,"ca-app-pub-5845066134579557~7077637026");
 
         Intent intent = getIntent();
         levelID = Integer.parseInt(intent.getStringExtra(ChooseLevelActivity.LEVEL_KEY));
@@ -55,7 +69,39 @@ public class PlayActivity extends AppCompatActivity {
         initQuestions();
         initViews();
 
+        mInterstital = new InterstitialAd(this);
+//        ca-app-pub-3940256099942544/1033173712 - тестовый
+//        ca-app-pub-5845066134579557/2220950060 - нащ
+        mInterstital.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        loadAd();
 
+        mInterstital.setAdListener(new AdListener(){
+            @Override
+            public void onAdLoaded() {
+                Toast.makeText(getApplicationContext(),"Add loaded", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAdFailedToLoad(int i) {
+                Toast.makeText(getApplicationContext(),"Some trouble with load"+i,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAdClosed() {
+                userAnswer.setHint(listOfQuestions.get(levelID-1).getAnswer());
+                loadAd();
+            }
+        });
+
+
+
+
+
+    }
+
+    private  void loadAd(){
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
+        mInterstital.loadAd(adRequest);
     }
 
     // Инициализация элементов интерфейса
@@ -67,6 +113,7 @@ public class PlayActivity extends AppCompatActivity {
         layout = findViewById(R.id.playLayout);
         nextLevelBtn = findViewById(R.id.nextLevelBtn);
         lvl = findViewById(R.id.txtLevel);
+        hintBtn = findViewById(R.id.hintButton);
 
 
 
@@ -94,12 +141,43 @@ public class PlayActivity extends AppCompatActivity {
                 setCurrentQuestion();
             }
         });
+        hintBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(PlayActivity.this);
+                builder.setTitle("Окно подсказки")
+                        .setMessage("Посмотреть рекламу чтобы получить подсказку?")
+                        .setCancelable(false)
+                        .setNegativeButton("Нет,сам справлюсь)",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                })
+                        .setPositiveButton("Да,трудно(", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Toast.makeText(getApplicationContext(),"Ведутся работы! Далее тут будет реклама",Toast.LENGTH_SHORT).show();
+                                if(mInterstital.isLoaded()){
+                                    mInterstital.show();
+                                    loadAd();
+                                }else{
+                                    Toast.makeText(getApplicationContext(),"Some error",Toast.LENGTH_SHORT).show();
+                                    loadAd();
+                                }
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
 
         setCurrentQuestion();
     }
 
     public void setCurrentQuestion(){
         userAnswer.setText("");
+        userAnswer.setHint("Общее слово");
         firstHint.setText(listOfQuestions.get(levelID-1).getFirstHint());
         secondHint.setText(listOfQuestions.get(levelID-1).getSecondHint());
         lvl.setText("Уровень " + levelID);

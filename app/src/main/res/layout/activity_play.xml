@@ -16,7 +16,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/baloo_thambi"
         android:text="Уровень"
-        android:textSize="46sp"
+        android:textSize="38sp"
         android:textStyle="bold"
         />
 
@@ -78,6 +78,15 @@
         android:enabled="false"
         android:text="Далее"/>
 
+    <Button
+        android:id="@+id/hintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@+id/txtLevel"
+        android:text="Hint"
+        android:textSize="15dp"/>
 
 
 </RelativeLayout>
