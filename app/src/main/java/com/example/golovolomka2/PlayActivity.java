@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -179,6 +180,7 @@ public class PlayActivity extends AppCompatActivity {
     public void setCurrentQuestion(){
         userAnswer.setText("");
         userAnswer.setHint("Общее слово");
+        userAnswer.setInputType(InputType.TYPE_CLASS_TEXT);
         firstHint.setText(listOfQuestions.get(levelID-1).getFirstHint());
         secondHint.setText(listOfQuestions.get(levelID-1).getSecondHint());
         lvl.setText("Уровень " + levelID);
@@ -187,6 +189,7 @@ public class PlayActivity extends AppCompatActivity {
         layout.setBackgroundResource(R.color.colorPrimaryDark);
         backBtn.setBackgroundResource(R.color.colorPrimaryDark);
         hintBtn.setVisibility(View.VISIBLE);
+
     }
 
 
@@ -210,11 +213,15 @@ public class PlayActivity extends AppCompatActivity {
                 if(levelID == NUMBER_OF_QUESTIONS){
                     //Молодец. Чемпион!!!
 
-                    // Оставляем число отвеченных вопросов равным 15
+                    // Оставляем число отвеченных вопросов равным 100
                     prefEditor.putInt(PREF_COUNT, levelID - 1);
                     prefEditor.apply();
+
+                    Intent intent = new Intent(this, EndActivity.class);
+                    startActivity(intent);
                     return;
                 }
+                userAnswer.setInputType(InputType.TYPE_NULL);
                 nextLevelBtn.setEnabled(true);
                 nextLevelBtn.setVisibility(View.VISIBLE);
             }
