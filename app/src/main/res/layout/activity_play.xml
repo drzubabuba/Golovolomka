@@ -8,6 +8,13 @@
     android:background="@color/colorPrimaryDark"
     android:id="@+id/playLayout">
 
+
+
+    <ImageButton
+        android:id="@+id/backChooseLevel"
+        style="@style/BackButton"
+        />
+
     <TextView
         android:id="@+id/txtLevel"
         android:layout_width="wrap_content"
@@ -18,6 +25,11 @@
         android:text="Уровень"
         android:textSize="38sp"
         android:textStyle="bold"
+        />
+
+    <ImageButton
+        android:id="@+id/hintButton"
+        style="@style/HelpButton"
         />
 
     <View
@@ -78,15 +90,7 @@
         android:enabled="false"
         android:text="Далее"/>
 
-    <Button
-        android:id="@+id/hintButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="25dp"
-        android:layout_toRightOf="@+id/txtLevel"
-        android:text="Hint"
-        android:textSize="15dp"/>
+
 
 
 </RelativeLayout>

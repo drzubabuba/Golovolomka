@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
@@ -21,6 +22,8 @@ import java.util.ArrayList;
 
 public class ChooseLevelActivity extends AppCompatActivity {
 
+    public static final int COUNT_OF_QUESTIONS = 100;
+
     // SharedPreferences
     private static final String PREFS_FILE = "GamePref";
     private static final String PREF_COUNT = "Count";
@@ -28,10 +31,13 @@ public class ChooseLevelActivity extends AppCompatActivity {
 
     public static final String LEVEL_KEY = "LEVEL";
 
+    public ImageButton backBtn;
+
     public int countOfAnsweredQuestions;
 
 
-    ArrayList<Button> levelButtons = new ArrayList<>(40);
+    ArrayList<Button> levelButtons = new ArrayList<>(COUNT_OF_QUESTIONS);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +45,14 @@ public class ChooseLevelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choose_level);
 
         settings = getSharedPreferences(PREFS_FILE, MODE_PRIVATE);
+
+        backBtn = findViewById(R.id.backChooseLevel);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         initButtons();
 
@@ -92,6 +106,72 @@ public class ChooseLevelActivity extends AppCompatActivity {
         levelButtons.add((Button) findViewById(R.id.btn_level_38));
         levelButtons.add((Button) findViewById(R.id.btn_level_39));
         levelButtons.add((Button) findViewById(R.id.btn_level_40));
+
+        levelButtons.add((Button) findViewById(R.id.btn_level_41));
+        levelButtons.add((Button) findViewById(R.id.btn_level_42));
+        levelButtons.add((Button) findViewById(R.id.btn_level_43));
+        levelButtons.add((Button) findViewById(R.id.btn_level_44));
+        levelButtons.add((Button) findViewById(R.id.btn_level_45));
+        levelButtons.add((Button) findViewById(R.id.btn_level_46));
+        levelButtons.add((Button) findViewById(R.id.btn_level_47));
+        levelButtons.add((Button) findViewById(R.id.btn_level_48));
+        levelButtons.add((Button) findViewById(R.id.btn_level_49));
+        levelButtons.add((Button) findViewById(R.id.btn_level_50));
+
+        levelButtons.add((Button) findViewById(R.id.btn_level_51));
+        levelButtons.add((Button) findViewById(R.id.btn_level_52));
+        levelButtons.add((Button) findViewById(R.id.btn_level_53));
+        levelButtons.add((Button) findViewById(R.id.btn_level_54));
+        levelButtons.add((Button) findViewById(R.id.btn_level_55));
+        levelButtons.add((Button) findViewById(R.id.btn_level_56));
+        levelButtons.add((Button) findViewById(R.id.btn_level_57));
+        levelButtons.add((Button) findViewById(R.id.btn_level_58));
+        levelButtons.add((Button) findViewById(R.id.btn_level_59));
+        levelButtons.add((Button) findViewById(R.id.btn_level_60));
+
+        levelButtons.add((Button) findViewById(R.id.btn_level_61));
+        levelButtons.add((Button) findViewById(R.id.btn_level_62));
+        levelButtons.add((Button) findViewById(R.id.btn_level_63));
+        levelButtons.add((Button) findViewById(R.id.btn_level_64));
+        levelButtons.add((Button) findViewById(R.id.btn_level_65));
+        levelButtons.add((Button) findViewById(R.id.btn_level_66));
+        levelButtons.add((Button) findViewById(R.id.btn_level_67));
+        levelButtons.add((Button) findViewById(R.id.btn_level_68));
+        levelButtons.add((Button) findViewById(R.id.btn_level_69));
+        levelButtons.add((Button) findViewById(R.id.btn_level_70));
+
+        levelButtons.add((Button) findViewById(R.id.btn_level_71));
+        levelButtons.add((Button) findViewById(R.id.btn_level_72));
+        levelButtons.add((Button) findViewById(R.id.btn_level_73));
+        levelButtons.add((Button) findViewById(R.id.btn_level_74));
+        levelButtons.add((Button) findViewById(R.id.btn_level_75));
+        levelButtons.add((Button) findViewById(R.id.btn_level_76));
+        levelButtons.add((Button) findViewById(R.id.btn_level_77));
+        levelButtons.add((Button) findViewById(R.id.btn_level_78));
+        levelButtons.add((Button) findViewById(R.id.btn_level_79));
+        levelButtons.add((Button) findViewById(R.id.btn_level_80));
+
+        levelButtons.add((Button) findViewById(R.id.btn_level_81));
+        levelButtons.add((Button) findViewById(R.id.btn_level_82));
+        levelButtons.add((Button) findViewById(R.id.btn_level_83));
+        levelButtons.add((Button) findViewById(R.id.btn_level_84));
+        levelButtons.add((Button) findViewById(R.id.btn_level_85));
+        levelButtons.add((Button) findViewById(R.id.btn_level_86));
+        levelButtons.add((Button) findViewById(R.id.btn_level_87));
+        levelButtons.add((Button) findViewById(R.id.btn_level_88));
+        levelButtons.add((Button) findViewById(R.id.btn_level_89));
+        levelButtons.add((Button) findViewById(R.id.btn_level_90));
+
+        levelButtons.add((Button) findViewById(R.id.btn_level_91));
+        levelButtons.add((Button) findViewById(R.id.btn_level_92));
+        levelButtons.add((Button) findViewById(R.id.btn_level_93));
+        levelButtons.add((Button) findViewById(R.id.btn_level_94));
+        levelButtons.add((Button) findViewById(R.id.btn_level_95));
+        levelButtons.add((Button) findViewById(R.id.btn_level_96));
+        levelButtons.add((Button) findViewById(R.id.btn_level_97));
+        levelButtons.add((Button) findViewById(R.id.btn_level_98));
+        levelButtons.add((Button) findViewById(R.id.btn_level_99));
+        levelButtons.add((Button) findViewById(R.id.btn_level_100));
     }
 
     // Обработчик нажатия кнопок
@@ -121,9 +201,11 @@ public class ChooseLevelActivity extends AppCompatActivity {
             levelButtons.get(i).setBackgroundResource(R.color.colorPrimary);
         }
 
-        for(int i = countOfAnsweredQuestions+1; i < 40; i++){
+        for(int i = countOfAnsweredQuestions+1; i < COUNT_OF_QUESTIONS; i++){
             levelButtons.get(i).setEnabled(false);
             levelButtons.get(i).setBackgroundResource(R.color.disabledButtonColor);
         }
     }
+
+
 }
